@@ -9,7 +9,7 @@ class ProfileScreen extends StatelessWidget {
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
         body: Center(
-          child: Text('Cart'),
+          child: Text('Profile'),
         ),
       ),
     );
