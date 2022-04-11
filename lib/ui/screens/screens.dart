@@ -4,6 +4,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hello/bloc/wallhaven_bloc.dart';
+import 'package:hello/data/api/wallhaven_api.dart';
+import 'package:hello/data/models/models.dart';
 
 // import 'package:hello/helpers/helpers.dart';
 import 'package:hello/ui/widgets/widgets.dart';
