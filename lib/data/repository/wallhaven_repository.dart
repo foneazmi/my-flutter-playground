@@ -1,5 +1,4 @@
-import 'package:hello/data/models/models.dart';
-import 'package:hello/data/api/wallhaven_api.dart';
+part of repository;
 
 class WallhavenRepository {
   final WallhavenApi _wallhavenApi = WallhavenApi();

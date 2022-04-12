@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 part of screens;
 
 class DashboardScreen extends StatefulWidget {
@@ -15,10 +17,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   static final List<Widget> _pages = <Widget>[
-    const HomeScreen(),
-    const LoremScreen(),
-    const LoremScreen(),
-    const ProfileScreen(),
+    HomeScreen(),
+    LoremScreen(),
+    PrayTimeScreen(),
+    ProfileScreen(),
   ];
 
   @override

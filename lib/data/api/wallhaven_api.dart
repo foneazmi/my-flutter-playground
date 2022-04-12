@@ -1,5 +1,4 @@
-import 'package:dio/dio.dart';
-import 'package:hello/data/models/models.dart';
+part of api;
 
 class WallhavenApi {
   final Dio _dio = Dio();

@@ -18,9 +18,6 @@ class PrayTimeScreen extends StatelessWidget {
             }
           },
         ),
-        floatingActionButton: FloatingActionButton(
-            child: const Icon(Icons.add),
-            onPressed: () => c.getPrayTime("malang", "2019-12-01")),
       ),
     );
   }
@@ -70,9 +67,13 @@ class PrayTimeScreen extends StatelessWidget {
           Text(
             "Midnight ${c.midnight}",
           ),
-          // Text(
-          //   "cityObs ${c.cityObs}",
-          // ),
+          Text(
+            "cityObs ${c.cityObs}",
+          ),
+          TextButton(
+            onPressed: () => c.getPrayTime("Jakarta", "2019-12-01"),
+            child: Text('Get PrayTime'),
+          ),
         ],
       ),
     );

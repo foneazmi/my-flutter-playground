@@ -15,6 +15,7 @@ class PrayTimeController extends GetxController {
   var maghrib = "-".obs;
   var isha = "-".obs;
   var midnight = "-".obs;
+  var cityObs = "-".obs;
 
   getPrayTime(city, date) async {
     loading.value = true;
@@ -31,6 +32,7 @@ class PrayTimeController extends GetxController {
       maghrib.value = times.maghrib ?? "-";
       isha.value = times.isha ?? "-";
       midnight.value = times.midnight ?? "-";
+      cityObs.value = prayTimeRepository.results!.location!.city ?? "-";
       error.value = false;
     } else {
       error.value = true;
