@@ -5,18 +5,24 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 1000), () {
-      Get.toNamed('/home');
+    Future.delayed(const Duration(milliseconds: 700), () {
+      Get.off(const DashboardScreen());
     });
 
     return const AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark,
+      value: SystemUiOverlayStyle.light,
       child: Scaffold(
         backgroundColor: Colors.red,
         body: Center(
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            child: Text('Khan'),
+            child: Text(
+              'My Flutter Playground',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+              ),
+            ),
           ),
         ),
       ),

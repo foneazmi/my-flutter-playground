@@ -17,6 +17,7 @@ part 'dashboard/lorem/lorem.dart';
 part 'dashboard/pray_time/pray_time.dart';
 part 'dashboard/profile/profile.dart';
 
+part 'image/image.dart';
 part 'wishlist/wishlist.dart';
 part 'cart/cart.dart';
 part 'template/template.dart';

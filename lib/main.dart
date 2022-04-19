@@ -12,13 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
       title: 'Flutter Demo',
-      getPages: [
-        GetPage(name: '/', page: () => const SplashScreen()),
-        GetPage(name: '/home', page: () => const DashboardScreen()),
-        GetPage(name: '/cart', page: () => const CartScreen()),
-        GetPage(name: '/wishlist', page: () => const WishlistScreen()),
-      ],
+      home: const DashboardScreen(),
     );
   }
 }

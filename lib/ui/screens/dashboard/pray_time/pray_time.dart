@@ -72,7 +72,7 @@ class PrayTimeScreen extends StatelessWidget {
           ),
           TextButton(
             onPressed: () => c.getPrayTime("Jakarta", "2019-12-01"),
-            child: Text('Get PrayTime'),
+            child: const Text('Get PrayTime'),
           ),
         ],
       ),
