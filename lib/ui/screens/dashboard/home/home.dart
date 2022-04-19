@@ -16,13 +16,13 @@ class HomeScreen extends StatelessWidget {
                 image:
                     'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80',
                 onPressWishlist: () {
-                  Navigator.pushNamed(context, '/wishlist');
+                  Get.toNamed('/wishlist');
                 },
                 onPressCart: () {
-                  Navigator.pushNamed(context, '/cart');
+                  Get.toNamed('/cart');
                 },
               ),
-              const Carousel()
+              Carousel()
             ],
           ),
         ),
@@ -32,18 +32,41 @@ class HomeScreen extends StatelessWidget {
 }
 
 class Carousel extends StatelessWidget {
-  const Carousel({
+  Carousel({
     Key? key,
   }) : super(key: key);
-
-  static const items = [
-    'https://images.unsplash.com/photo-1645306757038-687e7754c7e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1645342867031-267d2ad63733?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-    'https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
-  ];
+  final WallhavenController c = Get.put(WallhavenController());
 
   @override
   Widget build(BuildContext context) {
+    return GetX<WallhavenController>(
+      builder: (controller) {
+        if (controller.loading.value) {
+          return _buildLoadingWidget();
+        } else {
+          return _buildWidget();
+        }
+      },
+    );
+  }
+
+  Widget _buildLoadingWidget() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text("Loading data from API..."),
+            CircularProgressIndicator()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildWidget() {
+    final WallhavenController c = Get.put(WallhavenController());
     return CarouselSlider(
       options: CarouselOptions(
         height: 200,
@@ -58,7 +81,7 @@ class Carousel extends StatelessWidget {
         enlargeCenterPage: true,
         scrollDirection: Axis.horizontal,
       ),
-      items: items.map((item) {
+      items: c.wallpaper.map((item) {
         return Builder(
           builder: (BuildContext context) {
             return Container(
@@ -81,9 +104,9 @@ class Carousel extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(4),
                 child: Image.network(
-                  item,
+                  item['thumbs']['small'],
                   width: double.infinity,
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                   loadingBuilder: (context, child, loadingProgress) {
                     if (loadingProgress == null) return child;
                     return const Center(

@@ -13,13 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashScreen(),
-        '/home': (context) => const DashboardScreen(),
-        '/cart': (context) => const CartScreen(),
-        '/wishlist': (context) => const WishlistScreen(),
-      },
+      getPages: [
+        GetPage(name: '/', page: () => const SplashScreen()),
+        GetPage(name: '/home', page: () => const DashboardScreen()),
+        GetPage(name: '/cart', page: () => const CartScreen()),
+        GetPage(name: '/wishlist', page: () => const WishlistScreen()),
+      ],
     );
   }
 }

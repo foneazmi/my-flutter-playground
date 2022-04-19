@@ -79,17 +79,3 @@ class PrayTimeScreen extends StatelessWidget {
     );
   }
 }
-
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return StreamBuilder<Wallhaven>(
-  //     builder: (context, AsyncSnapshot<Wallhaven> snapshot) {
-  //       if (snapshot.hasData) {
-  //         return _buildUserWidget(snapshot.data!);
-  //       } else {
-  //         return _buildLoadingWidget();
-  //       }
-  //     },
-  //   );
-  // }

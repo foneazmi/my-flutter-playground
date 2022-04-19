@@ -3,7 +3,7 @@ part of repository;
 class WallhavenRepository {
   final WallhavenApi _wallhavenApi = WallhavenApi();
 
-  Future<Wallhaven> getWallpaper() {
+  Future<Response> getWallpaper() {
     return _wallhavenApi.getWallpaper();
   }
 }

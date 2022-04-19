@@ -1,23 +1,8 @@
 part of api;
 
-class PrayTimeApi {
-  final Dio _dio = Dio();
+class PrayTimeApi extends GetConnect {
   final _baseUrl = 'https://api.pray.zone/v2';
 
-  Future<PrayTime> getPrayTime(String city, String date) async {
-    PrayTime prayTime = PrayTime();
-    try {
-      final url = _baseUrl + '/times/day.json';
-      Response response = await _dio.get(
-        url,
-        queryParameters: {"city": city, "date": date},
-      );
-      prayTime = PrayTime.fromJson(response.data);
-      getx.Get.snackbar("Success", "Data loaded");
-    } catch (e) {
-      // print(e);
-      getx.Get.snackbar("Error", "error:${e.toString()}");
-    }
-    return prayTime;
-  }
+  Future<Response> getPrayTime(String city, String date) =>
+      get(_baseUrl + '/times/day.json', query: {'city': city, 'date': date});
 }

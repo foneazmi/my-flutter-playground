@@ -1,12 +1,7 @@
 part of api;
 
-class WallhavenApi {
-  final Dio _dio = Dio();
+class WallhavenApi extends GetConnect {
   final _baseUrl = 'https://wallhaven.cc/api/v1';
 
-  Future<Wallhaven> getWallpaper() async {
-    Response wallhavenData = await _dio.get(_baseUrl + '/search');
-    Wallhaven wallhaven = Wallhaven.fromJson(wallhavenData.data);
-    return wallhaven;
-  }
+  Future<Response> getWallpaper() => get(_baseUrl + '/search');
 }
