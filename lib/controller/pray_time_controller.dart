@@ -19,19 +19,24 @@ class PrayTimeController extends GetxController {
 
   getPrayTime(city, date) async {
     loading.value = true;
-    final response = await _prayTimeRepository.getPrayTime(city, date);
-    final times = response.body['results']['datetime'][0]['times'];
-    final location = response.body['results']['location'];
-    imsak.value = times['Imsak'];
-    sunrise.value = times['Sunrise'];
-    fajr.value = times['Fajr'];
-    dhuhr.value = times['Dhuhr'];
-    asr.value = times['Asr'];
-    sunset.value = times['Sunset'];
-    maghrib.value = times['Maghrib'];
-    isha.value = times['Isha'];
-    midnight.value = times['Midnight'];
-    cityObs.value = location['city'];
-    loading.value = false;
+    try {
+      final response = await _prayTimeRepository.getPrayTime(city, date);
+      final times = response.body['results']['datetime'][0]['times'];
+      final location = response.body['results']['location'];
+      imsak.value = times['Imsak'];
+      sunrise.value = times['Sunrise'];
+      fajr.value = times['Fajr'];
+      dhuhr.value = times['Dhuhr'];
+      asr.value = times['Asr'];
+      sunset.value = times['Sunset'];
+      maghrib.value = times['Maghrib'];
+      isha.value = times['Isha'];
+      midnight.value = times['Midnight'];
+      cityObs.value = location['city'];
+    } catch (e) {
+      // print(e);
+    } finally {
+      loading.value = false;
+    }
   }
 }

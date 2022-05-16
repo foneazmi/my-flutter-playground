@@ -6,7 +6,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 700), () {
-      Get.off(const DashboardScreen());
+      Get.off(() => const DashboardScreen());
     });
 
     return const AnnotatedRegion<SystemUiOverlayStyle>(

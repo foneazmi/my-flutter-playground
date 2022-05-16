@@ -16,10 +16,10 @@ class HomeScreen extends StatelessWidget {
                 image:
                     'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80',
                 onPressWishlist: () {
-                  Get.to(const WishlistScreen());
+                  Get.to(() => const WishlistScreen());
                 },
                 onPressCart: () {
-                  Get.to(const CartScreen());
+                  Get.to(() => const CartScreen());
                 },
               ),
               Carousel()
@@ -93,7 +93,7 @@ class Carousel extends StatelessWidget {
 
   Widget carouselItem(BuildContext context, item) {
     return GestureDetector(
-      onTap: () => Get.to(ImageScreen(image: item['path'])),
+      onTap: () => Get.to(() => ImageScreen(image: item['path'])),
       child: Container(
         width: MediaQuery.of(context).size.width,
         margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
